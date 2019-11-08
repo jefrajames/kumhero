@@ -1,0 +1,22 @@
+kumuluzee:
+  name: KumuluzEE GraphQL
+  env:
+    name: mp-graphql
+  server:
+      http:
+          port: 8080
+  graphql:
+    mapping: graphql
+    ui:
+      enabled: true
+    defaults:
+      offset: 0
+      limit: 20
+  health:
+    servlet:
+      mapping: /health
+      enabled: true
+    logs:
+      enabled: false
+      level: INFO
+      period-s: 30

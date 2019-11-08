@@ -1,0 +1,62 @@
+== SuperHero application on KumuluzEE
+
+This project is a https://ee.kumuluz.com[KumuluzEE] variation of the https://github.com/andymc12/SuperHeroDatabase[SuperHeroDatabase] project which serves as the basis for the https://github.com/eclipse/microprofile-graphql[MicroProfile GraphQL] project TCK.
+
+KumuluzEE provides a convenient https://github.com/kumuluz/kumuluzee-graphql[GraphQL extension] based on https://github.com/leangen/graphql-spqr[spqr]. This is a good option until there are some MicroProfile GraphQL implementations around.
+
+For the sake of simplicity, the project does not include any test.
+
+This project has been developped to evaluate GraphQL Java clients such as Amex Nodes.
+
+The build generates an executable jar file in the target directory.
+
+Nothing easier to run it:
+[source,shell]
+----
+java -jar target/KumHeroDatabase-1.0.jar
+----
+
+You can then connect to the GraphIQL interface with the following URL:
+[source,http]
+----
+
+http://localhost:8080/graphiql
+----
+
+An run some GraphQL queries such as:
+[source,json]
+----
+query allHeroes {
+  allHeroes {
+    name
+    primaryLocation
+    superPowers
+    realName
+  }
+}
+----
+
+----
+[source,json]
+query allAvengers {
+  allHeroesInTeam(team: "Avengers") {
+    name
+    primaryLocation
+    superPowers
+  }
+}
+----
+
+----
+[source,json]
+mutation createNewHero {
+  createNewHero(hero: {name: "Captain America", realName: "Steven Rogers", superPowers: ["Super strength", "Vibranium Shield"], primaryLocation: "New York, NY", teamAffiliations: [{name: "Avengers"}]}) {
+    name
+    primaryLocation
+    superPowers
+    realName
+  }
+}
+----
+
+Have fun!
