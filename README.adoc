@@ -36,8 +36,8 @@ query allHeroes {
 }
 ----
 
-----
 [source,json]
+----
 query allAvengers {
   allHeroesInTeam(team: "Avengers") {
     name
@@ -47,8 +47,8 @@ query allAvengers {
 }
 ----
 
-----
 [source,json]
+----
 mutation createNewHero {
   createNewHero(hero: {name: "Captain America", realName: "Steven Rogers", superPowers: ["Super strength", "Vibranium Shield"], primaryLocation: "New York, NY", teamAffiliations: [{name: "Avengers"}]}) {
     name
